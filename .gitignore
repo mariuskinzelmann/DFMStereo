@@ -1,0 +1,22 @@
+# Ignore checkpoint files
+models/DFMStereo/pretrained/
+models/FoundationStereo/pretrained/
+models/FastFoundationStereo/weights/
+pretrained/
+
+# Ignore Python cache
+**/__pycache__/
+__pycache__/
+*.py[cod]
+*.pth
+*.ckpt
+*.pt
+*.bin
+
+# Ignore Images and .mp4 files
+
+*.mp4
+*.jpeg
+*.png
+
+.vscode
