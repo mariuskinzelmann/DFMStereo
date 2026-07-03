@@ -72,20 +72,6 @@ class CostVolumeCosineSimilarity(nn.Module):
         loss = 1 - self.CosineSimilarity(cost_volume_student, cost_volume_teacher)
         return loss.mean()
 
-def stem_distillation_loss(stem_features_student, stem_features_teacher):
-    """Distillation Loss for Steam Features at 1/2 and 1/4 resolution."""
-
-    assert len(stem_features_student) == len(stem_features_teacher)
-    weights = [1.0, 1.0, 1.0, 1.0]
-    loss_fn = nn.CosineSimilarity(dim=1)
-    losses = []
-    for stem_feature_student, stem_feature_teacher, weight in zip(stem_features_student, stem_features_teacher, weights):
-        assert stem_feature_student.shape == stem_feature_teacher.shape
-        loss = weight * ((1 - loss_fn(stem_feature_student, stem_feature_teacher)).mean())
-        losses.append(loss)
-
-    return sum(losses) / sum(weights)
-
 def igev_sequence_loss_geo_vol(init_disp, iter_preds, disparity_gt, loss_gamma=0.9, max_disp=416) -> torch.Tensor:
     """Loss function defined over sequence of flow predictions. Works for IGEV Models which only predict a single initial disparity."""
 
