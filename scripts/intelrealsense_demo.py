@@ -1,6 +1,11 @@
 """
 Script for realtime demo on Intel RealSense models. Requires RealSense to be installed.
-https://dev.realsenseai.com/installation/linux-ubuntu-installation-from-source/
+Supported Versions for Ubuntu:
+- Ubuntu 20/22/24 LTS
+1) Install Intel Realsense from: https://dev.realsenseai.com/installation/linux-ubuntu-installation-from-source/
+2) Install conda environment using 'environment.yml'.
+3) Activate dfmstereo environment.
+4) Run Script.
 """
 
 

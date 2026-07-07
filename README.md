@@ -71,36 +71,31 @@ pip install -r requirements.txt
 ## Pre-trained Models
 
 We provide pre-trained checkpoints for all three DFMStereo variants (**S**, **M**, **L**), distilled from foundation stereo models and evaluated for zero-shot generalization on Middlebury, ETH3D, KITTI, and Booster.
+Link to all checkpoints: [Link](https://drive.google.com/drive/folders/1gXnIVgJGynq-gJjMexx6iOBBvm8gC504?usp=drive_link)+
 
-| Model         | Params | Runtime (per frame) | Download |
-|---------------|:------:|:--------------------:|:--------:|
-| DFMStereo-S   |   —    |          —            | [link](#) |
-| DFMStereo-M   |   —    |        38 ms          | [link](#) |
-| DFMStereo-L   |   —    |          —            | [link](#) |
+| Model         | Params  | Runtime (per frame) | Download |
+|---------------|:-------:|:-------------------:|:--------:|
+| DFMStereo-S   | 16.65 M |         36 ms       | [Link](https://drive.google.com/file/d/1CEhjIUmLe3__rO9im0LNa64_5aEfpFaR/view?usp=drive_link) |
+| DFMStereo-M   | 12.21 M |         33 ms       | [Link](https://drive.google.com/file/d/1nctoWLi-FZmVekz-jS3TeUH_WvpTQLz1/view?usp=drive_link) |
+| DFMStereo-L   | 14.16 M |         35 ms       | [Link](https://drive.google.com/file/d/1am49D8scIzqjMzeON34TGhtMlcZCVxah/view?usp=drive_link) |
 
-To download and set up the pre-trained weights:
+Inference Times are obtained on NVIDIA RTX 3090 using torch.compile(dfmstereo, 'max-autotune'). Slower infernce times on the Small variant are likely due to lack of optimization.
+To download and set up the pre-trained weights (Both SceneFlow and Million-Scale):
 
 ```bash
 mkdir -p checkpoints
 cd checkpoints
 
 # Example — replace with actual download links / script
-wget <download-link-for-dfmstereo-s.pth>
-wget <download-link-for-dfmstereo-m.pth>
-wget <download-link-for-dfmstereo-l.pth>
+wget <https://drive.google.com/file/d/1l9g42OTjpbZz5HKfOBWCC654a9MAt4rt/view?usp=drive_link>
+wget <https://drive.google.com/file/d/1am49D8scIzqjMzeON34TGhtMlcZCVxah/view?usp=drive_link>
+wget <https://drive.google.com/file/d/1nctoWLi-FZmVekz-jS3TeUH_WvpTQLz1/view?usp=drive_link>
+wget <https://drive.google.com/file/d/19yJ5O4Tp-vGZYibkIztBSGiH39ZiJV7i/view?usp=drive_link>
+wget <https://drive.google.com/file/d/1CEhjIUmLe3__rO9im0LNa64_5aEfpFaR/view?usp=drive_link>
+wget <https://drive.google.com/file/d/1mgQe7SWlne8LfOwyl0gYv_2r5VvnFr4Z/view?usp=drive_link>
 
 cd ..
 ```
-
-Alternatively, a helper script will be provided to fetch all checkpoints at once:
-
-```bash
-python scripts/download_weights.py --model all --output checkpoints/
-```
-
-> Checkpoints and exact download links will be released alongside the code.
-
----
 
 ## Real-Time Demo (Intel RealSense)
  
